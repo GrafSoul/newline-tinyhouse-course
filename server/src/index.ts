@@ -1,6 +1,7 @@
 // Core
 import express from 'express'
 import bodyParser from "body-parser";
+
 // Mack
 import { listings } from "./listings";
 
@@ -30,7 +31,6 @@ app.post("/delete-listing", (req, res) => {
 
     return res.send("failed to deleted listing");
 });
-
 
 app.listen(port);
 
