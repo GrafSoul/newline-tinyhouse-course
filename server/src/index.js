@@ -4,7 +4,7 @@ const app = express();
 const port = 9000;
 
 // Routes
-app.get("/", (req, res) => res.send("hello world"));
+app.get("/", (req, res) => res.send("Hello World"));
 app.listen(port);
 
 // Message
