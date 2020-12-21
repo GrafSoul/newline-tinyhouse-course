@@ -1,36 +1,41 @@
 // Core
 import express from 'express'
-import bodyParser from "body-parser";
+// import bodyParser from "body-parser";
+import { ApolloServer } from "apollo-server-express";
+import { schema } from './graphql';
 
 // Mack
-import { listings } from "./listings";
+// import { listings } from "./listings";
 
 const app = express();
 const port = 9000;
+const server = new ApolloServer({ schema });
 
-app.use(bodyParser.json());
+server.applyMiddleware({ app, path: "/api" });
+
+// app.use(bodyParser.json());
 
 // Routes
-const one = 1;
-const two = 2;
+// const one = 1;
+// const two = 2;
 
-app.get("/", (_req, res) => res.send(`1 + 2 = ${one + two}`));
+// app.get("/", (_req, res) => res.send(`1 + 2 = ${one + two}`));
 
-app.get("/listings", (_req, res) => {
-    res.send(listings);
-});
+// app.get("/listings", (_req, res) => {
+//     res.send(listings);
+// });
 
-app.post("/delete-listing", (req, res) => {
-    const id: string = req.body.id;
+// app.post("/delete-listing", (req, res) => {
+//     const id: string = req.body.id;
 
-    for (let i = 0; i < listings.length; i++) {
-        if (listings[i].id === id) {
-        return res.send(listings.splice(i, 1)[0]);
-        }
-    }
+//     for (let i = 0; i < listings.length; i++) {
+//         if (listings[i].id === id) {
+//         return res.send(listings.splice(i, 1)[0]);
+//         }
+//     }
 
-    return res.send("failed to deleted listing");
-});
+//     return res.send("failed to deleted listing");
+// });
 
 app.listen(port);
 
