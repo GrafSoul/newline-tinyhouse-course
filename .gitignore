@@ -1,4 +1,9 @@
-node_modules
+server/node_modules
+server/.env
+server/package-lock.json
+server/yarn.lock
 
+node_modules
+.env
 package-lock.json
 yarn.lock
