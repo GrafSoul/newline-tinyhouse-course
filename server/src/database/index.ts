@@ -1,4 +1,5 @@
 import { MongoClient } from 'mongodb';
+import { Database } from '../lib/types';
 import dotenv  from 'dotenv';
 dotenv.config();
 
@@ -9,15 +10,15 @@ const cluster = process.env.CLUSTER;
 const url = 
 `mongodb+srv://${user}:${userPassword}${cluster}.nvckw.mongodb.net/<dbname>?retryWrites=true&w=majority`;
 
-export const connectDatabase = async () => {
-    const client = await MongoClient.connect(url, { 
+export const connectDatabase = async (): Promise<Database> => {
+    const client = await MongoClient.connect(url, {
         useNewUrlParser: true,
-        useUnifiedTopology: true 
+        useUnifiedTopology: true
     });
 
     const db = client.db('main');
 
     return {
         listings: db.collection('test_listings')
-    }
-} 
+    };
+};
