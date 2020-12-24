@@ -1,6 +1,6 @@
 // Core
 import express, { Application } from 'express'
-import { ApolloServer } from "apollo-server-express";
+import { ApolloServer } from 'apollo-server-express';
 
 // Database
 import { connectDatabase } from './database'
@@ -18,7 +18,7 @@ const mount = async (app: Application) => {
         context: () => ({db}) 
     });
 
-    server.applyMiddleware({ app, path: "/api" });
+    server.applyMiddleware({ app, path: '/api' });
     app.listen(port);
     
     // Message

@@ -3,7 +3,7 @@ import express from 'express'
 import bodyParser from "body-parser";
 
 // Mack
-import { listings } from "../listings";
+import { listings } from "../../src/listings";
 
 const app = express();
 const port = 9000;

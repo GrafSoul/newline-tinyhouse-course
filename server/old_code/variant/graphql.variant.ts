@@ -8,7 +8,7 @@ import {
     GraphQLNonNull,
     GraphQLList
 } from "graphql";
-import { listings } from "../listings";
+import { listings } from "../../src/listings";
 
 const Listing = new GraphQLObjectType({
     name: "Listing",
