@@ -1,9 +1,18 @@
+# dependencies
 server/node_modules
-server/.env
-server/package-lock.json
-server/yarn.lock
-
 node_modules
+
+# production
+build/
+
+# misc
+.DS_Store
+
+# environment
+server/.env
 .env
-package-lock.json
-yarn.lock
+
+server/package-lock.json*
+server/yarn.lock*
+package-lock.json*
+yarn.lock*

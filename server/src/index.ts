@@ -8,7 +8,9 @@ import { connectDatabase } from './database'
 // GraphQL
 import { typeDefs, resolvers } from './graphql';
 
-const port = 9000;
+// Environment
+import dotenv  from 'dotenv';
+dotenv.config();
 
 const mount = async (app: Application) => {
     const db = await connectDatabase();
@@ -19,10 +21,10 @@ const mount = async (app: Application) => {
     });
 
     server.applyMiddleware({ app, path: '/api' });
-    app.listen(port);
+    app.listen(process.env.PORT);
     
     // Message
-    console.log(`[app] : http://localhost:${port}`);
+    console.log(`[app] : http://localhost:${process.env.PORT}`);
 
     // const listings = await db.listings.find({}).toArray();
     // console.log(listings)
