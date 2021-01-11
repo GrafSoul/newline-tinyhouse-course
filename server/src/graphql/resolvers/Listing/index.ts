@@ -6,8 +6,8 @@ export const listingResolvers: IResolvers = {
     Query: {
         listings: async (
             _root: undefined, 
-            _args: {}, 
-            {db}: {db: Database}
+            _args: { }, 
+            { db }: {db: Database}
         ): Promise<Listing[]> => {
             return await db.listings.find({}).toArray();
         }
@@ -16,7 +16,7 @@ export const listingResolvers: IResolvers = {
         deleteListing: async (
             _root: undefined, 
             { id }: { id: string }, 
-            {db}: {db: Database}
+            { db }: { db: Database }
             ): Promise<Listing> => {
             const deleteRes = await db.listings.findOneAndDelete({
                 _id: new ObjectId(id),
